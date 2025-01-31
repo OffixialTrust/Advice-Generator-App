@@ -49,7 +49,7 @@ body {
 }
 
 #dice-holder:hover {
-    box-shadow: 1px 1px 36px 4px hsl(150, 100%, 66%);
+    box-shadow: 1px 1px 40px 4px hsl(150, 100%, 66%);
 }
 
 @media only screen and (min-width: 768px) {

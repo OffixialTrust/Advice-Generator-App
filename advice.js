@@ -16,7 +16,8 @@ let data;
 id("dice").addEventListener("click", () => {
     // Fetching the advice API       
     fetchApi("https://api.adviceslip.com/advice")
-.then((response) => data = response.slip);
+.then((response) => data = response.slip)
+.catch((err) => alert(`An Error occurred: ${err}`));
 
     //Changing the content of the texts
     id("number").textContent = data.id;
