@@ -1,0 +1,1 @@
+This is an advice generator application. It is a task I built from frontendmentor.io to test out my API handling and asynchronous programming skills. The advice.js file also has a commented version of the fetch Api without async/await. Feel free to edit and improve my codes. I will greatly appreciate any helpful feedback or constructive criticism, I'm craving it!
