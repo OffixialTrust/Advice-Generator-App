@@ -16,22 +16,29 @@ async function fetchApi(url) {
 id("dice-holder").addEventListener("click", () => {
     id("advice").textContent = "Loading...";
 
+    function changeData(adviceText, numText, adviceStyle, numStyle, headStyle, conStyle ) {
+        id("number").textContent = numText;
+        id("advice").textContent = adviceText;
+        id("advice").style.color = adviceStyle;
+        id("header").style.color = headStyle;
+        id("container").style.backgroundColor = conStyle;
+        id("number").style.display = numStyle;
+    }
+
     // Fetching the advice API       
     fetchApi("https://api.adviceslip.com/advice").then((response) => {
     //Changing the content of the texts
-         id("number").textContent = response.slip.id;
-         id("advice").textContent = `“${response.slip.advice}”`;
+         const text = `“${response.slip.advice}”`;
+         const num = response.slip.id;
+
+         changeData(text, num, "hsl(193, 38%, 86%)", "inline", "hsl(150, 100%, 66%)", "hsl(217, 19%, 24%)");
 
     }).catch((err) => {
-        id("advice").textContent = `An Error Occurred: ${err.message}`;
-        id("advice").style.color = "red";
-        id("header").style.color = "red";
-        id("container").style.backgroundColor = "#eee";
+        const error = `An Error Occurred: ${err.message}`;
+
+        changeData(error, null , "red", null, "red", "#eee");
     });
 });
-
-setTimeout(() => alert("Wait a few seconds before generating a new advice"), 800);
-
 
 
 /*
