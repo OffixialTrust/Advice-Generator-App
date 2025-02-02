@@ -12,20 +12,26 @@ async function fetchApi(url) {
     return result
 }
 
-let data;
-id("dice").addEventListener("click", () => {
-    // Fetching the advice API       
-    fetchApi("https://api.adviceslip.com/advice")
-.then((response) => data = response.slip)
-.catch((err) => alert(`An Error occurred: ${err}`));
 
+id("dice-holder").addEventListener("click", () => {
+    id("advice").textContent = "Loading...";
+
+    // Fetching the advice API       
+    fetchApi("https://api.adviceslip.com/advice").then((response) => {
     //Changing the content of the texts
-    id("number").textContent = data.id;
-    id("advice").textContent = `“${data.advice}”`;
+         id("number").textContent = response.slip.id;
+         id("advice").textContent = `“${response.slip.advice}”`;
+
+    }).catch((err) => {
+        id("advice").textContent = `An Error Occurred: ${err.message}`;
+        id("advice").style.color = "red";
+        id("header").style.color = "red";
+        id("container").style.backgroundColor = "#eee";
+    });
 });
 
-// keeping the alert message down so the page can start loading, then the alert pops, buying time to fetch the Api
-alert("After generating an advice, wait a few seconds before generating a new advice");
+setTimeout(() => alert("Wait a few seconds before generating a new advice"), 800);
+
 
 
 /*

@@ -46,6 +46,8 @@ body {
     right: 40.3%;
     margin: 0;
     bottom: -30px;
+    border: none;
+    cursor: pointer;
 }
 
 #dice-holder:hover {
