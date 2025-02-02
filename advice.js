@@ -45,6 +45,7 @@ setTimeout(() => alert("Kindly wait a few seconds before generating a new advice
 
 // Without using async/await
 
+let data;
 fetch("https://api.adviceslip.com/advice")
 .then((response) => response.json())
 .then(result => data = result.slip);
