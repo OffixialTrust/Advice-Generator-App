@@ -40,7 +40,7 @@ id("dice-holder").addEventListener("click", () => {
     });
 });
 
-
+setTimeout(() => alert("Kindly wait a few seconds before generating a new advice."), 800);
 /*
 
 // Without using async/await
