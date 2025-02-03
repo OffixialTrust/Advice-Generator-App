@@ -37,8 +37,8 @@ id("dice-holder").addEventListener("click", () => {
 
     }).catch((err) => {
         const error = `An Error Occurred: ${err.message}`;
-
         changeData(error, null , "red", "none", "red", "#eee");
+        setTimeout(() => id("dice-holder").disabled = false, 2000);
     });
 });
 
