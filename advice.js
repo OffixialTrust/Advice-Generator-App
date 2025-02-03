@@ -45,6 +45,8 @@ id("dice-holder").addEventListener("click", () => {
 
 // Without using async/await
 /*
+
+let data;
 fetch("https://api.adviceslip.com/advice")
 .then((response) => response.json())
 .then(result => data = result.slip);
