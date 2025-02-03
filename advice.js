@@ -15,6 +15,7 @@ async function fetchApi(url) {
 
 id("dice-holder").addEventListener("click", () => {
     id("advice").textContent = "Loading...";
+    id("dice-holder").disabled = true;
 
     function changeData(adviceText, numText, adviceStyle, numStyle, headStyle, conStyle ) {
         id("number").textContent = numText;
@@ -30,6 +31,7 @@ id("dice-holder").addEventListener("click", () => {
     //Changing the content of the texts
          const text = `“${response.slip.advice}”`;
          const num = response.slip.id;
+         setTimeout(() => id("dice-holder").disabled = false, 2000);
 
          changeData(text, num, "hsl(193, 38%, 86%)", "inline", "hsl(150, 100%, 66%)", "hsl(217, 19%, 24%)");
 
@@ -40,11 +42,9 @@ id("dice-holder").addEventListener("click", () => {
     });
 });
 
-setTimeout(() => alert("Kindly wait a few seconds before generating a new advice."), 800);
-/*
 
 // Without using async/await
-
+/*
 fetch("https://api.adviceslip.com/advice")
 .then((response) => response.json())
 .then(result => data = result.slip);
